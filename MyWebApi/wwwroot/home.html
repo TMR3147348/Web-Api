@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="home.js" defr></script>
+    <style>
+      body{
+          display:flex;
+          gap:20px;
+
+      }
+      .register,.login{
+          display:flex;
+          flex-direction:column;
+          gap:2px;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input class="firstname" type="text" placeholder="הכנס שם פרטי" />
+        <input class="lastname" type="text" placeholder="הכנס שם משפחה" />
+        <input class="password" type="password" placeholder="הכנס סיסמא" />
+        <input class="email" type="email" placeholder="הכנס מייל" />
+        <button class="sendreg" onclick="getResponse()">לחץ להרשמה</button>
+    </div>
+    <div class="login">
+        <input class="password" type="password" placeholder="הכנס סיסמא" />
+        <input class="email" type="email" placeholder="הכנס מייל" />
+        <button class="sendlog" onclick="getResposeLogin()">לחץ לכניסה</button>
+    </div>
+    <a href="update.html">לעדכון פרטים</a>
+</body>
+</html>

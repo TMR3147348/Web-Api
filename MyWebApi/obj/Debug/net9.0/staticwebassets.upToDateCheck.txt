@@ -1,0 +1,8 @@
+wwwroot\home.html
+wwwroot\update.html
+wwwroot\update.js
+wwwroot\home.js
+E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.html
+E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.html
+E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.js
+E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.js

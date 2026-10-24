@@ -1,0 +1,2 @@
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.html
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.js
