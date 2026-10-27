@@ -32,13 +32,58 @@ async function getResposeLogin() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(responseLogin)
+        body: JSON.stringify(LogData)
     });
-    if (!responseLogin.ok) {
+    if (!responseLogin.ok) 
         alert("This user is undifine!!")
     else
-        alert("The user exist in thesystem")
+        alert("The user exist in the system")
+    
+    const res = await responseLogin.json();
+    sessionStorage.setItem('CurrentUser', res.id);
+    alert(JSON.stringify(res));
+}
+async function getResponse() {
+    const postData =
+    {
+        userName: document.querySelector(".userName").value,
+        password: document.querySelector(".password").value,
+        firstName: document.querySelector(".firstName").value,
+        lastName: document.querySelector(".lastName").value,
+        id: sessionStorage.getItem('currentUser')
+    };
+    const userJson = sessionStorage.getItem('currentUser');
+    const updateUser = await fetch('api/users', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application / json'
+        },
+        body: JSON.stringify(postData)
+    });
+    if (!updateUser.ok)
+        throw new Error(`error!! status: ${updateUser.status}`);
+    else
+        alert("updates!")
+}
+}
+
+const CheckPasswordStrong = async () =>
+{
+    
+    const checkpassword= document.querySelector(".checkpassword").value
+    
+    //const result = zxcvbn(password);
+    //const score = result.score;
+    const strength = await fetch('API/User/check', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(checkpassword)
+    });
+    if (strength < 2) {
+        alert("Iam the best!!")
     }
-    const res = await responsePost.json();
-    sessionStorage.setItem('CurrentUser', JSON.stringify(res));
+
+
 }

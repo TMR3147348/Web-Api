@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Zxcvbn;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,11 +37,23 @@ namespace MyWebApi.Controllers
         //    }
         //    RETURN NO USER FOUND
         //}
+        [HttpPost("Check")]
+        public int PostCheck([FromBody] string password)
+        {
+            if (password == null)
+                return 0;
+            //cont result=zxcvbn(password)
+            //const score=result.score
+            var result = Core.EvaluatePassword(password);
+            int score = result.Score;
+            return score;
+        }
+
 
         [HttpPost("login")]
         public ActionResult<User> PostLogin([FromBody] Login login)
         {
-            string filePath = "E:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
+            string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
                 string? currentUserInFile;
@@ -49,7 +63,7 @@ namespace MyWebApi.Controllers
                     JsonSerializer.Deserialize<User>(currentUserInFile);
                     if (user.email == login.email && user.password == login.password)
                         //CreatedAtAction(nameof(Get), new { id = user.id },user);
-                        return Ok(user);
+                        return Ok(login);
                 }
             }
 
@@ -61,7 +75,7 @@ namespace MyWebApi.Controllers
 
         public ActionResult<User> Post([FromBody] User user)
         {
-            string filePath = "E:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
+            string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.id = numberOfUsers + 1;
             string userJson = JsonSerializer.Serialize(user);
@@ -75,7 +89,7 @@ namespace MyWebApi.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] User user)
         {
-            string filePath = "E:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
+            string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             string textToReplace = string.Empty;
             using (StreamReader reader =
             System.IO.File.OpenText(filePath))
@@ -85,7 +99,7 @@ namespace MyWebApi.Controllers
                 {
                     User user1 =
                     JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user1.id == id)
+                    if (user1.id == user.id)
                         textToReplace = currentUserInFile;
                 }
             }

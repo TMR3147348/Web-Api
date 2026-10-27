@@ -27,8 +27,6 @@ D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\refint\MyWebApi.dll
 D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.pdb
 D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.genruntimeconfig.cache
 D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\ref\MyWebApi.dll
-D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\lbw3i3uy4l-f2yq7gnj1r.gz
-D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\vs6sh1s4te-24hmtjamq2.gz
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\rpswa.dswa.cache.json
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.GeneratedMSBuildEditorConfig.editorconfig
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.AssemblyInfoInputs.cache
@@ -62,3 +60,11 @@ E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\staticwebassets.upToDateC
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.genruntimeconfig.cache
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\ref\MyWebApi.dll
 E:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\vs6sh1s4te-ccrwbfp7z6.gz
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.sourcelink.json
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\bin\Debug\net9.0\zxcvbn-core.dll
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.csproj.AssemblyReference.cache
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\9iwj9u17d3-3r8b2a0bt1.gz
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\0h34a0bucs-vatea9u33y.gz
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\lbw3i3uy4l-oyocu9rlgs.gz
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\MyWebApi.csproj.Up2Date
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\obj\Debug\net9.0\compressed\vs6sh1s4te-dvmxl0xwtj.gz

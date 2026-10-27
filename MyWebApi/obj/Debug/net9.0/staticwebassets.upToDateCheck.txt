@@ -2,7 +2,7 @@ wwwroot\home.html
 wwwroot\update.html
 wwwroot\update.js
 wwwroot\home.js
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.html
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.html
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.js
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.js
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.html
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.html
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\update.js
+D:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.js

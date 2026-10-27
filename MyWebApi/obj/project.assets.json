@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "zxcvbn-core/7.0.92": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/zxcvbn-core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/zxcvbn-core.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "zxcvbn-core/7.0.92": {
+      "sha512": "3CKGKJe4SnFrks38EuF4iq1DT6IqsyNu/zMQp9GOpaipb7qdZndjjTXQa1/dkNh/OoxD0/aTcIBrRrbD4ALeGQ==",
+      "type": "package",
+      "path": "zxcvbn-core/7.0.92",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net451/zxcvbn-core.dll",
+        "lib/net451/zxcvbn-core.xml",
+        "lib/netstandard1.3/zxcvbn-core.dll",
+        "lib/netstandard1.3/zxcvbn-core.xml",
+        "lib/netstandard2.0/zxcvbn-core.dll",
+        "lib/netstandard2.0/zxcvbn-core.xml",
+        "zxcvbn-core.7.0.92.nupkg.sha512",
+        "zxcvbn-core.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "zxcvbn-core >= 7.0.92"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\IMOE001\\.nuget\\packages\\": {},
@@ -14,11 +49,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\MyWebApi.csproj",
+      "projectUniqueName": "D:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\MyWebApi.csproj",
       "projectName": "MyWebApi",
-      "projectPath": "E:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\MyWebApi.csproj",
+      "projectPath": "D:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\MyWebApi.csproj",
       "packagesPath": "C:\\Users\\IMOE001\\.nuget\\packages\\",
-      "outputPath": "E:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\obj\\",
+      "outputPath": "D:\\שנה ב\\WebAPI\\MyWebApi\\MyWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,6 +92,12 @@
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
+        "dependencies": {
+          "zxcvbn-core": {
+            "target": "Package",
+            "version": "[7.0.92, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
