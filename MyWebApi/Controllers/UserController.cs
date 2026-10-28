@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.Data;
+﻿//fix: Removed "using Microsoft.AspNetCore.Identity;" and "using Microsoft.AspNetCore.Identity.Data;" - they were added by mistake and are not used
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Zxcvbn;
@@ -20,6 +19,7 @@ namespace MyWebApi.Controllers
         }
 
         // GET api/<UserController>/5
+        //Why is GET by id commented out? It should read the file and return the user with this id (or NotFound / NoContent)
         //[HttpGet("{id}")]
         //public string Get(int id)
         //{
@@ -53,6 +53,8 @@ namespace MyWebApi.Controllers
         [HttpPost("login")]
         public ActionResult<User> PostLogin([FromBody] Login login)
         {
+            //This full path works only on your computer, and DB.txt is not in the repository (.gitignore leaves it out),
+            //so nobody else can run the project. Keep DB.txt in the project folder, commit it, and use the relative path "DB.txt"
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
@@ -63,6 +65,7 @@ namespace MyWebApi.Controllers
                     JsonSerializer.Deserialize<User>(currentUserInFile);
                     if (user.email == login.email && user.password == login.password)
                         //CreatedAtAction(nameof(Get), new { id = user.id },user);
+                        //This returns what the client sent (email and password). Should it return the user that was found?
                         return Ok(login);
                 }
             }
@@ -75,6 +78,7 @@ namespace MyWebApi.Controllers
 
         public ActionResult<User> Post([FromBody] User user)
         {
+            //Same here: use the relative path "DB.txt"
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.id = numberOfUsers + 1;
@@ -87,8 +91,10 @@ namespace MyWebApi.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end
         public void Put(int id, [FromBody] User user)
         {
+            //Same here: use the relative path "DB.txt"
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             string textToReplace = string.Empty;
             using (StreamReader reader =
@@ -99,12 +105,19 @@ namespace MyWebApi.Controllers
                 {
                     User user1 =
                     JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user1.id == user.id)
+                    //fix: Look for the id from the route (api/User/5), not the id in the body
+                    if (user1.id == id)
+                    {
                         textToReplace = currentUserInFile;
+                        //fix: Found- break
+                        break;
+                    }
                 }
             }
             if(textToReplace != string.Empty)
 {
+                //fix: Keep the id, otherwise the updated user is saved with the id from the body
+                user.id = id;
                 string text = System.IO.File.ReadAllText(filePath);
                 text = text.Replace(textToReplace,
                 JsonSerializer.Serialize(user));
