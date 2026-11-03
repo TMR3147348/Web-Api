@@ -1,2 +1,16 @@
 DB.txt
-.vs
+.vs/
+
+# .NET build folders
+bin/
+obj/
+
+# Visual Studio
+*.user
+*.suo
+
+# Temporary files
+*.tmp
+*.cache
+
+Web-Api/

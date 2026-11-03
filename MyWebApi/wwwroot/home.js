@@ -20,69 +20,80 @@ async function getResponse() {
     const res = await responsePost.json();
     //console.log('post data:', res);
     //console.log(typeof(res))
-    sessionStorage.setItem('CurrentUser', JSON.stringify(res));
+    sessionStorage.setItem('CurrentUser', res.id);
 }
 async function getResposeLogin() {
     const LogData = {
-        password: document.querySelector(".password").value,
-        email: document.querySelector(".email").value
+        password: document.querySelector(".login-password").value,
+        email: document.querySelector(".login-email").value
     }
-    const responseLogin = await fetch('API/User/login', {
+    const responseLogin = await fetch('api/User/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(LogData)
     });
-    if (!responseLogin.ok) 
+    if (!responseLogin.ok)
         alert("This user is undifine!!")
     else
-        alert("The user exist in the system")
-    
+    {
     const res = await responseLogin.json();
     sessionStorage.setItem('CurrentUser', res.id);
-    alert(JSON.stringify(res));
+    alert(JSON.stringify(res)); } 
 }
-async function getResponse() {
+async function put() {
     const postData =
-    {
-        userName: document.querySelector(".userName").value,
+        {
+       
+        firstname: document.querySelector(".firstname").value,
+        lastname: document.querySelector(".lastname").value,
         password: document.querySelector(".password").value,
-        firstName: document.querySelector(".firstName").value,
-        lastName: document.querySelector(".lastName").value,
-        id: sessionStorage.getItem('currentUser')
+        email:document.querySelector(".email").value,
+        id: sessionStorage.getItem('CurrentUser')
     };
-    const userJson = sessionStorage.getItem('currentUser');
-    const updateUser = await fetch('api/users', {
-        method: 'PUT',
+    //const userJson = sessionStorage.getItem('currentUser');1
+    const id = sessionStorage.getItem("CurrentUser");
+
+    const updateUser = await fetch(`API/User/${id}`, {
+        method: "PUT",
         headers: {
-            'Content-Type': 'application / json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(postData)
     });
     if (!updateUser.ok)
-        throw new Error(`error!! status: ${updateUser.status}`);
+        //throw new Error(`error!! status: ${updateUser.status}`);
+        alert("undefine!")
     else
         alert("updates!")
 }
-}
+
 
 const CheckPasswordStrong = async () =>
 {
     
-    const checkpassword= document.querySelector(".checkpassword").value
+    const checkpassword = document.querySelector(".password").value
     
     //const result = zxcvbn(password);
     //const score = result.score;
-    const strength = await fetch('API/User/check', {
+    const response = await fetch('API/User/check', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(checkpassword)
     });
+    if (!response.ok) {
+        throw new Error(`שגיאת שרת: ${response.status}`);
+    }
+
+    const strength = await response.json();
+
     if (strength < 2) {
-        alert("Iam the best!!")
+        alert("הסיסמה חלשה");
+    } else {
+        alert("הסיסמה חזקה");
     }
 
 

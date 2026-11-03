@@ -1,4 +1,0 @@
-wwwroot\home.js
-wwwroot\home.html
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.html
-E:\שנה ב\WebAPI\MyWebApi\MyWebApi\wwwroot\home.js
