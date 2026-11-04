@@ -2,12 +2,19 @@
 using System.Text.Json;
 using Entity;
 using Repository;
-//using Zxcvbn;
+using Zxcvbn;
 namespace Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        UserRepository repository = new UserRepository();
+        IUserRepository repository;
+       public  UserService(IUserRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        
+
         public IEnumerable<string> Get()
         {
             return repository.GetUsers();
@@ -18,16 +25,14 @@ namespace Services
             return repository.GetUserById(id);
         }
 
-        //public int PostCheck(string password)
-        //{
-        //    if (password == null)
-        //        return 0;
-        //    //cont result=zxcvbn(password)
-        //    //const score=result.score
-        //    var result = Core.EvaluatePassword(password);
-        //    int score = result.Score;
-        //    return score;
-        //}
+        public int PostCheck(string password)
+        {
+            if (password == null)
+                return 0;
+            var result = Core.EvaluatePassword(password);
+            int score = result.Score;
+            return score;
+        }
 
         public User PostLogin(Login login)
         {
@@ -47,6 +52,7 @@ namespace Services
         public void Delete(int id)
         {
         }
+
 
     }
 

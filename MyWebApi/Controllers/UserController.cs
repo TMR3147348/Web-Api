@@ -14,7 +14,11 @@ namespace MyWebApi.Controllers
 
     public class UserController : ControllerBase
     {
-        UserService userservice = new UserService();
+        IUserService userservice;
+        public UserController (IUserService UserService) 
+        {
+            this.userservice = UserService;
+        }
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -35,11 +39,11 @@ namespace MyWebApi.Controllers
             
         }
         [HttpPost("Check")]
-        //public int PostCheck([FromBody] string password)
-        //{
-        //    return userservice.PostCheck(password);
-      
-        //}
+        public int PostCheck([FromBody] string password)
+        {
+            return userservice.PostCheck(password);
+
+        }
 
 
         [HttpPost("login")]
@@ -48,7 +52,7 @@ namespace MyWebApi.Controllers
             var user= userservice.PostLogin(login);
 
             if (user == null)
-                return NotFound();
+                return NoContent();
             return Ok(user);
         }
 
