@@ -13,6 +13,7 @@ namespace Repository
         }
 
 
+        //This is a full path on your computer (D:\...): use a path relative to the project so the project runs on another computer
         public User GetUserById(int id)
         {
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
