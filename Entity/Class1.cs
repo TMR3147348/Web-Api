@@ -1,5 +1,6 @@
 ﻿namespace Entity
 {
+    //Public properties are PascalCase (Email, Password). Keep the names of the stored User properties: add PropertyNameCaseInsensitive = true to the JSON options instead
     public class Login
     {
         public string email { get; set; }
