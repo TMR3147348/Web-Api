@@ -17,6 +17,7 @@ namespace MyWebApi.Controllers
         IUserService userservice;
         public UserController (IUserService UserService) 
         {
+            //Where is the password service? The users controller and the password controller both take its interface and call it
             this.userservice = UserService;
         }
         // GET: api/<UserController>
@@ -69,6 +70,7 @@ namespace MyWebApi.Controllers
             //Environment.NewLine);
             //return CreatedAtAction(nameof(Get), new { id = user.id },
             //user);
+            //The assignment asks POST to reject a weak password (score below 3) with BadRequest. Where should the password service be called from?
             user = userservice.Post(user);
             return CreatedAtAction(nameof(Get), new { id = user.id },
             user); 
@@ -76,6 +78,7 @@ namespace MyWebApi.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end
         public void Put(int id, [FromBody] User user)
         {
 //            string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
@@ -100,6 +103,7 @@ namespace MyWebApi.Controllers
 //                JsonSerializer.Serialize(user));
 //                System.IO.File.WriteAllText(filePath, text);
 //            }
+            //The assignment asks PUT to reject a weak password (score below 3) with BadRequest. Where is the password service called?
             userservice.Put(id, user);
         }
 

@@ -15,6 +15,7 @@ namespace Repository
 
         public User GetUserById(int id)
         {
+            //This is a full path on a disk: use a path relative to the project, so the project runs on another computer
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
@@ -53,6 +54,7 @@ namespace Repository
 
         public User AddUser(User user)
         {
+            //DB.txt isn't in the repo, so the app fails until it is created: add the data file to the repo, or create it when it's missing
             string filePath = "D:\\שנה ב\\WebAPI\\MyWebApi\\DB.txt";
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.id = numberOfUsers + 1;
