@@ -15,6 +15,7 @@ async function getResponse() {
         body: JSON.stringify(postData)
     });
     if (!responsePost.ok)
+    //Is status() a function? In fetch, status is a property: responsePost.status
     { throw new Error(`HTTP error! status:' ${responsePost.status()}`) }
     const res = await responsePost.json();
     //console.log('post data:', res);
@@ -83,6 +84,7 @@ async function put() {
 }
 
 
+//In JavaScript, function names are written in camelCase: checkPasswordStrong
 const CheckPasswordStrong = async () =>
 {
     
