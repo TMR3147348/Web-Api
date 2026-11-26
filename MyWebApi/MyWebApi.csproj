@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
+		
+	
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -9,6 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Zxcvbn" Version="0.1.1" />
     <PackageReference Include="zxcvbn-core" Version="7.0.92" />
+	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
   </ItemGroup>
 
   <ItemGroup>
